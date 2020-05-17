@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primaryDarkColor"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primaryDarkColor"
+            app:layout_scrollFlags="scroll|snap|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/search"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="8dp"
+            android:gravity="left|center_vertical"
+            android:text="180 contact"
+            android:textColor="@color/primaryTextColorVariant"
+            app:cornerRadius="100dp"
+            app:icon="@drawable/ic_search_24dp" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/contact_item" />
+
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutDescription="@xml/scene_01">
+
+        <ScrollView
+            android:id="@+id/form_add"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/add_sheet_placeholder"
+            app:layout_constraintEnd_toEndOf="@id/add_sheet_placeholder"
+            app:layout_constraintStart_toStartOf="@id/add_sheet_placeholder"
+            app:layout_constraintTop_toTopOf="@id/add_sheet_placeholder"
+            android:layout_marginBottom="@dimen/bottom_bar_height">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="@string/first_name"
+                    app:hintTextColor="@color/primaryTextColorVariant"
+                    app:endIconMode="clear_text"
+                    app:errorEnabled="true"
+                    app:startIconDrawable="@drawable/ic_person_add"
+                    app:startIconTint="@color/primaryTextColorVariant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusableInTouchMode="true"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:maxLength="50"
+                        android:nextFocusForward="@id/last_name"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:hint="@string/last_name"
+                    app:endIconMode="clear_text"
+                    app:errorEnabled="true"
+                    app:startIconDrawable="@drawable/ic_person_add"
+                    app:hintTextColor="@color/primaryTextColorVariant"
+                    app:startIconTint="@color/primaryTextColorVariant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusableInTouchMode="true"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLength="50"
+                        android:nextFocusForward="@id/phone"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phone"
+                    app:endIconMode="clear_text"
+                    app:startIconDrawable="@drawable/ic_phone"
+                    app:hintTextColor="@color/primaryTextColorVariant"
+                    app:startIconTint="@color/primaryTextColorVariant">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:imeOptions="actionDone"
+                        android:inputType="phone"
+                        android:maxLines="24"
+                        android:singleLine="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <View
+            android:id="@+id/add_sheet_placeholder"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="4:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fab"
+            android:layout_width="@dimen/fab_size"
+            android:layout_height="@dimen/fab_size"
+            app:cardBackgroundColor="@color/primaryColor"
+            app:cardCornerRadius="@dimen/fab_radius"
+            app:cardElevation="@dimen/fab_elevation" />
+
+        <ImageView
+            android:id="@+id/save_icon"
+            android:layout_width="@dimen/fab_size"
+            android:layout_height="@dimen/fab_size"
+            android:elevation="34dp"
+            android:outlineProvider="none"
+            android:scaleType="centerInside"
+            android:tint="@color/primaryTextColor"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/fab"
+            app:layout_constraintEnd_toEndOf="@id/fab"
+            app:layout_constraintStart_toStartOf="@id/fab"
+            app:srcCompat="@drawable/ic_save" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/primaryColor"
+            android:elevation="33dp"
+            android:paddingBottom="@dimen/bottom_bar_height"
+            android:translationY="32dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/add_sheet_placeholder"
+            app:layout_constraintEnd_toEndOf="@id/add_sheet_placeholder"
+            app:layout_constraintStart_toStartOf="@id/add_sheet_placeholder"
+            app:layout_constraintTop_toTopOf="@id/add_sheet_placeholder" />
+
+        <TextView
+            android:id="@+id/title_sheet"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/title_height"
+            android:background="@color/secondaryDarkColor"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/add_new_contact"
+            android:textColor="@color/secondaryTextColor"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/container" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/bottom_bar_card_view"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/bottom_bar_height"
+            android:outlineProvider="none"
+            android:visibility="invisible"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="33dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/close_icon"
+            android:layout_width="@dimen/fab_size"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:elevation="34dp"
+            android:outlineProvider="none"
+            android:scaleType="centerInside"
+            android:tint="@color/secondaryTextColor"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_bar_card_view"
+            app:layout_constraintTop_toTopOf="@id/bottom_bar_card_view"
+            app:srcCompat="@drawable/ic_close" />
+
+        <ImageView
+            android:id="@+id/add_icon"
+            android:layout_width="@dimen/fab_size"
+            android:layout_height="@dimen/fab_size"
+            android:elevation="34dp"
+            android:outlineProvider="none"
+            android:scaleType="centerInside"
+            android:tint="@color/primaryTextColor"
+            app:layout_constraintBottom_toBottomOf="@id/fab"
+            app:layout_constraintEnd_toEndOf="@id/fab"
+            app:layout_constraintStart_toStartOf="@id/fab"
+            android:src="@drawable/ic_person_add"
+            />
+
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
