@@ -26,8 +26,6 @@ import com.ennbou.contact.data.Contact;
 import com.ennbou.contact.data.ContactAdapter;
 import com.ennbou.contact.data.ContactVMFactory;
 import com.ennbou.contact.data.ContactViewModel;
-import com.ennbou.contact.data.EditContactVM;
-import com.ennbou.contact.data.EditVMFactory;
 import com.ennbou.contact.ui.HeadContact;
 import com.ennbou.contact.ui.ItemClickSupport;
 import com.google.android.material.button.MaterialButton;
@@ -52,7 +50,7 @@ public class ListFragment extends Fragment implements MainActivity.IOnBackPresse
     private MainActivity dis;
 
     private NavController navController;
-
+    private HeadContact headerLetter = null;
 
     @Nullable
     @Override
@@ -125,7 +123,6 @@ public class ListFragment extends Fragment implements MainActivity.IOnBackPresse
             }
         });
 
-        viewModel = new ViewModelProvider(dis, new ContactVMFactory(dis.getApplication())).get(ContactViewModel.class);
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,12 +131,20 @@ public class ListFragment extends Fragment implements MainActivity.IOnBackPresse
             }
         });
 
+        viewModel = new ViewModelProvider(dis, new ContactVMFactory(dis.getApplication())).get(ContactViewModel.class);
+
         viewModel.getAllContacts().observe(dis, new Observer<List<Contact>>() {
             @Override
             public void onChanged(List<Contact> contacts) {
                 adapter.setContact(contacts);
-                if (contacts.size() > 0)
-                    list.addItemDecoration(new HeadContact(contacts, getContext()));
+                if (headerLetter != null) {
+                    list.removeItemDecoration(headerLetter);
+                }
+                headerLetter = new HeadContact(contacts, getContext());
+                int size = contacts.size();
+                if (size > 0)
+                    list.addItemDecoration(headerLetter);
+                search.setText(size + " contact");
             }
         });
 
