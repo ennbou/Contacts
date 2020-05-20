@@ -6,7 +6,10 @@
     <string name="add_new_contact">Add New Contact</string>
 
 
-    <string name="msg_form_validation">Add New Contact</string>
+    <string name="msg_form_validation">please checking all field</string>
+    <string name="msg_success_add">contact added successfully</string>
+    <string name="msg_success_remove">contact removed successfully</string>
+    <string name="msg_success_edit">update successfully</string>
 
     <!-- Action buttons for from add or update -->
     <string name="save">Save</string>

@@ -30,13 +30,14 @@ import com.ennbou.contact.ui.HeadContact;
 import com.ennbou.contact.ui.ItemClickSupport;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
-public class ListFragment extends Fragment implements MainActivity.IOnBackPressed {
+public class ListFragment extends Fragment {
 
 
     private RecyclerView list;
@@ -111,6 +112,8 @@ public class ListFragment extends Fragment implements MainActivity.IOnBackPresse
                             public void onClick(DialogInterface dialog, int which) {
                                 viewModel.deleteContact(contact);
                                 dialog.dismiss();
+                                Snackbar.make(layout, R.string.msg_success_remove, Snackbar.LENGTH_SHORT)
+                                        .show();
                             }
                         }).setNegativeButton(cancel, new DialogInterface.OnClickListener() {
                     @Override
@@ -219,7 +222,8 @@ public class ListFragment extends Fragment implements MainActivity.IOnBackPresse
                 String lN = lastName.getText().toString();
                 String p = phone.getText().toString();
                 if (fN.isEmpty() || p.isEmpty()) {
-                    // TODO set error message
+                    Snackbar.make(layout, R.string.msg_form_validation, Snackbar.LENGTH_SHORT)
+                            .show();
                 } else {
                     Contact c = new Contact();
                     c.setFirstName(fN);
@@ -227,6 +231,8 @@ public class ListFragment extends Fragment implements MainActivity.IOnBackPresse
                     c.setPhoneNumber(p);
                     viewModel.insertContact(c);
                     btnCancel.performClick();
+                    Snackbar.make(layout, R.string.msg_success_add, Snackbar.LENGTH_SHORT)
+                            .show();
                 }
             }
         });
@@ -251,9 +257,4 @@ public class ListFragment extends Fragment implements MainActivity.IOnBackPresse
         hideSoftKeyboard();
     }
 
-
-    @Override
-    public boolean onBackPressed() {
-        return true;
-    }
 }

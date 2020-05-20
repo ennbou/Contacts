@@ -23,17 +23,6 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this, new ContactVMFactory(this.getApplication())).get(ContactViewModel.class);
     }
 
-    @Override public void onBackPressed() {
-        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.ListFragment);
-        if (!(fragment instanceof IOnBackPressed) || !((IOnBackPressed) fragment).onBackPressed()) {
-            super.onBackPressed();
-        }
-    }
-
-    public interface IOnBackPressed {
-        boolean onBackPressed();
-    }
-
 }
 
 

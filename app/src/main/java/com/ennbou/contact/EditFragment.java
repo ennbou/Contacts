@@ -28,6 +28,7 @@ import java.util.Optional;
 public class EditFragment extends Fragment {
 
     private Contact contact = new Contact();
+    private String title;
 
     @Nullable
     @Override
@@ -49,7 +50,8 @@ public class EditFragment extends Fragment {
         TextInputEditText note = view.findViewById(R.id.note);
 
         TextView save = view.findViewById(R.id.save);
-
+        title = getContext().getResources().getString(R.string.add_new_contact);
+        toolbar.setTitle(title);
 
         ContactViewModel vm = new ViewModelProvider(getActivity(), new ContactVMFactory(getActivity().getApplication())).get(ContactViewModel.class);
 
@@ -57,8 +59,7 @@ public class EditFragment extends Fragment {
             @Override
             public void onChanged(Contact contact) {
                 EditFragment.this.contact = contact;
-                String title = contact.getFullName();
-                title = title == null ? "" : title;
+                title = (contact.getId() == null) ? title : contact.getFullName();
                 toolbar.setTitle(title);
                 firstName.setText(contact.getFirstName());
                 lastName.setText(contact.getLastName());
@@ -105,7 +106,7 @@ public class EditFragment extends Fragment {
                 contact.setNote(cNote);
 
 
-                if (contact.getId() != 0) {
+                if (contact.getId() != null) {
                     vm.saveContact(contact);
                 } else {
                     vm.insertContact(contact);
