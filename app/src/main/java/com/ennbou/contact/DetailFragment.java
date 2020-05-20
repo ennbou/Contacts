@@ -13,18 +13,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
+
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.ennbou.contact.data.Contact;
 import com.ennbou.contact.data.ContactVMFactory;
-import com.ennbou.contact.data.EditContactVM;
-import com.ennbou.contact.data.EditVMFactory;
-import com.google.android.material.button.MaterialButton;
-
-import org.w3c.dom.Text;
+import com.ennbou.contact.data.ContactViewModel;
 
 public class DetailFragment extends Fragment {
 
@@ -48,7 +44,7 @@ public class DetailFragment extends Fragment {
         TextView note = view.findViewById(R.id.note);
 
 
-        EditContactVM vm = new ViewModelProvider(getActivity(), new EditVMFactory(getActivity().getApplication())).get(EditContactVM.class);
+        ContactViewModel vm = new ViewModelProvider(getActivity(), new ContactVMFactory(getActivity().getApplication())).get(ContactViewModel.class);
 
         vm.getContact().observe(getActivity(), new Observer<Contact>() {
             @Override
@@ -79,7 +75,7 @@ public class DetailFragment extends Fragment {
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "0634381316"));
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone.getText().toString()));
                 startActivity(intent);
             }
         });
@@ -88,7 +84,7 @@ public class DetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent sendIntent = new Intent(Intent.ACTION_VIEW);
-                sendIntent.setData(Uri.parse("sms:" + "0634381316"));
+                sendIntent.setData(Uri.parse("sms:" + phone.getText().toString()));
                 startActivity(sendIntent);
             }
         });

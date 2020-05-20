@@ -1,0 +1,41 @@
+<resources>
+    <!-- Name of the application -->
+    <string name="app_name">Contacts</string>
+
+    <!--  Title quick add form  -->
+    <string name="add_new_contact">Neveau Contact</string>
+
+
+    <string name="msg_form_validation">Add New Contact</string>
+
+    <!-- Action buttons for from add or update -->
+    <string name="save">Enrg</string>
+    <string name="cancel">Annule</string>
+    <string name="edit">Modifier</string>
+    <string name="call">Appele</string>
+    <string name="text">Texte</string>
+
+    <!-- Form add new contact or edit existing contact -->
+    <string name="first_name">Nom</string>
+    <string name="last_name">Prenom</string>
+    <string name="phone">Telephone</string>
+    <string name="email">Email</string>
+    <string name="note">Description</string>
+    <string name="job">Emploi</string>
+
+    <!--  Hint of search view  -->
+    <string name="search">Recherche</string>
+
+    <!-- Types of different contacts -->
+    <string name="family">Famille</string>
+    <string name="work">Travail</string>
+    <string name="friend">Ami</string>
+
+    <!-- Description image -->
+    <string name="image_contact_description">Image de Contact</string>
+    <string name="remove_confirmation">Vous voulez supprimer ce contact?</string>
+    <string name="remove_contact">Supprimer contact</string>
+    <string name="remove">Supprimer</string>
+
+
+</resources>

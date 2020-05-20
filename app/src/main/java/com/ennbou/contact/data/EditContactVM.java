@@ -29,10 +29,6 @@ public class EditContactVM extends AndroidViewModel {
         repo.updateContact(contact);
     }
 
-    public void insertContact(Contact contact) {
-        repo.insertContact(contact);
-    }
-
     public LiveData<Contact> getContact() {
         return contact;
     }

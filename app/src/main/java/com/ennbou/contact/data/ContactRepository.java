@@ -10,7 +10,6 @@ public class ContactRepository {
 
     private ContactDao dao;
     private LiveData<List<Contact>> contacts;
-    private LiveData<Contact> contact;
 
     public ContactRepository(Application application) {
         dao = MyDataBase.getDataBase(application.getApplicationContext()).contactDao();

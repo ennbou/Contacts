@@ -14,16 +14,16 @@ import androidx.fragment.app.Fragment;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+
 
 import com.ennbou.contact.data.Contact;
 import com.ennbou.contact.data.ContactVMFactory;
-import com.ennbou.contact.data.EditContactVM;
-import com.ennbou.contact.data.EditVMFactory;
+import com.ennbou.contact.data.ContactViewModel;
+
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.security.PrivateKey;
+import java.util.Optional;
+
 
 public class EditFragment extends Fragment {
 
@@ -51,13 +51,15 @@ public class EditFragment extends Fragment {
         TextView save = view.findViewById(R.id.save);
 
 
-        EditContactVM vm = new ViewModelProvider(getActivity(), new EditVMFactory(getActivity().getApplication())).get(EditContactVM.class);
+        ContactViewModel vm = new ViewModelProvider(getActivity(), new ContactVMFactory(getActivity().getApplication())).get(ContactViewModel.class);
 
         vm.getContact().observe(getActivity(), new Observer<Contact>() {
             @Override
             public void onChanged(Contact contact) {
                 EditFragment.this.contact = contact;
-                toolbar.setTitle(contact.getFullName());
+                String title = contact.getFullName();
+                title = title == null ? "" : title;
+                toolbar.setTitle(title);
                 firstName.setText(contact.getFirstName());
                 lastName.setText(contact.getLastName());
                 phone.setText(contact.getPhoneNumber());

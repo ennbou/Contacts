@@ -51,7 +51,7 @@ public class ListFragment extends Fragment implements MainActivity.IOnBackPresse
 
     private MainActivity dis;
 
-    NavController navController;
+    private NavController navController;
 
 
     @Nullable
@@ -95,9 +95,8 @@ public class ListFragment extends Fragment implements MainActivity.IOnBackPresse
         ItemClickSupport.addTo(list).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                EditContactVM vm = new ViewModelProvider(dis, new EditVMFactory(dis.getApplication())).get(EditContactVM.class);
                 Contact contact = ((ContactAdapter) recyclerView.getAdapter()).getItem(position);
-                vm.setContact(contact);
+                viewModel.setContact(contact);
                 navController.navigate(R.id.action_ListFragment_to_DetailFragment);
             }
         });
@@ -171,6 +170,7 @@ public class ListFragment extends Fragment implements MainActivity.IOnBackPresse
         btnAdd.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                viewModel.setContact(new Contact());
                 navController.navigate(R.id.action_ListFragment_to_EditFragment);
                 return true;
             }

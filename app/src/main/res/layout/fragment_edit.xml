@@ -51,8 +51,11 @@
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="right"
                     android:layout_marginRight="24dp"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:padding="8dp"
                     android:text="@string/save"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -148,7 +151,8 @@
                         app:endIconMode="clear_text"
                         app:errorEnabled="true"
                         app:hintTextColor="@color/primaryTextColorVariant"
-                        app:startIconDrawable="@drawable/ic_person_add">
+                        app:startIconDrawable="@drawable/ic_person_add"
+                        app:startIconTint="@android:color/transparent">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/last_name"

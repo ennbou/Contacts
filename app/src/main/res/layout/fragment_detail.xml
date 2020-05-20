@@ -21,8 +21,8 @@
             app:expandedTitleGravity="top"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleMarginTop="200dp"
-            app:scrimAnimationDuration="200"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:scrimAnimationDuration="200">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -50,10 +50,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_gravity="right"
+                    android:layout_gravity="end"
                     android:layout_marginRight="24dp"
+                    android:fontFamily="@font/baloo_bhai"
+                    android:padding="8dp"
                     android:text="@string/edit"
-                    android:textColor="@color/primaryTextColor" />
+                    android:textColor="@color/primaryTextColor"
+                    android:textSize="16sp" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -164,61 +167,199 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="24dp">
-
+                    android:paddingVertical="24dp"
+                    android:paddingStart="34dp"
+                    android:paddingEnd="24dp">
 
                     <!-- Phone number -->
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/phone"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="8dp"
-                        android:text="0632313873817"
-                        android:textColor="@color/primaryTextColor"
-                        android:textSize="20sp" />
+                        android:layout_margin="8dp"
+                        android:clickable="true"
+                        android:paddingStart="16dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/img_phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_phone"
+                                android:backgroundTint="@color/primaryTextColorVariant"
+                                app:layout_constraintBottom_toTopOf="@id/txt_phone"
+                                app:layout_constraintEnd_toEndOf="@id/txt_phone"
+                                app:layout_constraintStart_toStartOf="@id/txt_phone"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/txt_phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp"
+                                android:text="@string/phone"
+                                android:textColor="@color/design_default_color_secondary_variant"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/img_phone" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:padding="16dp"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="22sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/txt_phone"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
                     <!-- Email  -->
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/email"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="8dp"
-                        android:drawableStart="@drawable/ic_email_24dp"
-                        android:drawablePadding="16dp"
-                        android:text="ennbou@yandex.com"
-                        android:textColor="@color/primaryTextColor"
-                        android:textSize="20sp" />
+                        android:layout_margin="8dp"
+                        android:clickable="true"
+                        android:paddingStart="16dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/img_email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_email_24dp"
+                                android:backgroundTint="@color/primaryTextColorVariant"
+                                app:layout_constraintBottom_toTopOf="@id/txt_email"
+                                app:layout_constraintEnd_toEndOf="@id/txt_email"
+                                app:layout_constraintStart_toStartOf="@id/txt_email"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/txt_email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp"
+                                android:text="@string/email"
+                                android:textColor="@color/design_default_color_secondary_variant"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/img_email" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:padding="16dp"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="22sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/txt_email"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
                     <!-- Job -->
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/job"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginVertical="8dp"
-                        android:drawableStart="@drawable/ic_job_24dp"
-                        android:drawablePadding="16dp"
-                        android:text="enseignant"
-                        android:textColor="@color/primaryTextColor"
-                        android:textSize="20sp" />
+                        android:layout_margin="8dp"
+                        android:clickable="true"
+                        android:paddingStart="16dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/img_job"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/ic_job_24dp"
+                                android:backgroundTint="@color/primaryTextColorVariant"
+                                app:layout_constraintBottom_toTopOf="@id/txt_job"
+                                app:layout_constraintEnd_toEndOf="@id/txt_job"
+                                app:layout_constraintStart_toStartOf="@id/txt_job"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/txt_job"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp"
+                                android:text="@string/job"
+                                android:textColor="@color/design_default_color_secondary_variant"
+                                android:textSize="10sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/img_job" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/job"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:padding="16dp"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="22sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/txt_job"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
                     <!-- Note or Description -->
-
-
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawablePadding="16dp"
-                        android:text="@string/note"
-                        android:textColor="@color/secondaryDarkColor"
-                        android:textSize="20sp" />
+                        android:layout_marginVertical="8dp"
+                        android:clickable="true"
+                        android:paddingStart="16dp">
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/note"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:drawablePadding="16dp"
-                        android:paddingHorizontal="8dp"
-                        android:text="jhasd kjhdka kjhd akkjsdk kjsdh"
-                        android:textColor="@color/primaryTextColor"
-                        android:textSize="20sp" />
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/txt_note"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                android:text="@string/note"
+                                android:textColor="@color/design_default_color_secondary_variant"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/note"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="24dp"
+                                android:padding="24dp"
+                                android:textColor="@color/primaryTextColor"
+                                android:textSize="22sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/txt_note"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
                 </LinearLayout>
 
             </ScrollView>

@@ -229,6 +229,7 @@
             app:layout_constraintTop_toTopOf="@id/bottom_bar_card_view"
             app:srcCompat="@drawable/ic_close" />
 
+
         <ImageView
             android:id="@+id/add_icon"
             android:layout_width="@dimen/fab_size"
@@ -236,7 +237,6 @@
             android:elevation="34dp"
             android:outlineProvider="none"
             android:scaleType="centerInside"
-            android:tint="@color/primaryTextColor"
             app:layout_constraintBottom_toBottomOf="@id/fab"
             app:layout_constraintEnd_toEndOf="@id/fab"
             app:layout_constraintStart_toStartOf="@id/fab"
