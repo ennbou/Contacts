@@ -10,4 +10,5 @@
     <color name="primaryTextColorVariant">#33FFFFFF</color>
     <color name="secondaryTextColor">#ffffff</color>
     <color name="transparent">#0fff</color>
+    <color name="background">#212121</color>
 </resources>

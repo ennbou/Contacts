@@ -8,6 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 
 
@@ -39,7 +40,7 @@ public class EditFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        ViewCompat.setTranslationZ(getView(), 100.f);
         Toolbar toolbar = view.findViewById(R.id.toolbar);
 
         TextInputEditText firstName = view.findViewById(R.id.first_name);

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:context=".ListFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primaryDarkColor"
+        android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
@@ -36,6 +37,12 @@
             app:icon="@drawable/ic_search_24dp" />
     </com.google.android.material.appbar.AppBarLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/primaryDarkColor"
+        android:fitsSystemWindows="true"
+        app:layout_behavior="com.ennbou.contact.ui.StatusBarScrimBehavior" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
@@ -55,12 +62,12 @@
             android:id="@+id/form_add"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/bottom_bar_height"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/add_sheet_placeholder"
             app:layout_constraintEnd_toEndOf="@id/add_sheet_placeholder"
             app:layout_constraintStart_toStartOf="@id/add_sheet_placeholder"
-            app:layout_constraintTop_toTopOf="@id/add_sheet_placeholder"
-            android:layout_marginBottom="@dimen/bottom_bar_height">
+            app:layout_constraintTop_toTopOf="@id/add_sheet_placeholder">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,9 +80,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
                     android:hint="@string/first_name"
-                    app:hintTextColor="@color/primaryTextColorVariant"
                     app:endIconMode="clear_text"
                     app:errorEnabled="true"
+                    app:hintTextColor="@color/primaryTextColorVariant"
                     app:startIconDrawable="@drawable/ic_person_add"
                     app:startIconTint="@color/primaryTextColorVariant">
 
@@ -99,8 +106,8 @@
                     android:hint="@string/last_name"
                     app:endIconMode="clear_text"
                     app:errorEnabled="true"
-                    app:startIconDrawable="@drawable/ic_person_add"
                     app:hintTextColor="@color/primaryTextColorVariant"
+                    app:startIconDrawable="@drawable/ic_person_add"
                     app:startIconTint="@color/primaryTextColorVariant">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -121,8 +128,8 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/phone"
                     app:endIconMode="clear_text"
-                    app:startIconDrawable="@drawable/ic_phone"
                     app:hintTextColor="@color/primaryTextColorVariant"
+                    app:startIconDrawable="@drawable/ic_phone"
                     app:startIconTint="@color/primaryTextColorVariant">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -137,7 +144,6 @@
                         android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
 
 
             </LinearLayout>
@@ -237,11 +243,10 @@
             android:elevation="34dp"
             android:outlineProvider="none"
             android:scaleType="centerInside"
+            android:src="@drawable/ic_person_add"
             app:layout_constraintBottom_toBottomOf="@id/fab"
             app:layout_constraintEnd_toEndOf="@id/fab"
-            app:layout_constraintStart_toStartOf="@id/fab"
-            android:src="@drawable/ic_person_add"
-            />
+            app:layout_constraintStart_toStartOf="@id/fab" />
 
 
     </androidx.constraintlayout.motion.widget.MotionLayout>

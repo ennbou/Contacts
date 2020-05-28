@@ -39,6 +39,7 @@
     <string name="remove_confirmation">if you want remove this contact?</string>
     <string name="remove_contact">Remove Contact</string>
     <string name="remove">Remove</string>
+    <string name="not_found">not found</string>
 
 
 </resources>

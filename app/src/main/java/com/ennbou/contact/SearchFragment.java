@@ -15,9 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +28,7 @@ import com.ennbou.contact.data.Contact;
 import com.ennbou.contact.data.ContactAdapter;
 import com.ennbou.contact.data.ContactVMFactory;
 import com.ennbou.contact.data.ContactViewModel;
+import com.ennbou.contact.ui.ItemClickSupport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +40,7 @@ import java.util.regex.Pattern;
 public class SearchFragment extends Fragment {
 
     List<Contact> listContacts;
+    private NavController navController;
 
     @Nullable
     @Override
@@ -46,10 +51,13 @@ public class SearchFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //ViewCompat.setTranslationZ(getView(), 100f);
 
         ContactViewModel viewModel = new ViewModelProvider(getActivity(), new ContactVMFactory(getActivity().getApplication())).get(ContactViewModel.class);
 
         TextView empty = view.findViewById(R.id.empty);
+
+        navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
 
         viewModel.getAllContacts().observe(getActivity(), new Observer<List<Contact>>() {
             @Override
@@ -123,6 +131,16 @@ public class SearchFragment extends Fragment {
             }
         });
 
+        ItemClickSupport.addTo(list).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                Contact contact = ((ContactAdapter) recyclerView.getAdapter()).getItem(position);
+                viewModel.setContact(contact);
+                navController.navigate(R.id.action_SearchFragment_to_DetailFragment);
+            }
+        });
+
     }
+
 
 }

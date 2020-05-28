@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 
@@ -33,7 +34,7 @@ public class DetailFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        ViewCompat.setTranslationZ(getView(), 100.f);
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         ImageView call = view.findViewById(R.id.call);
         ImageView message = view.findViewById(R.id.message);

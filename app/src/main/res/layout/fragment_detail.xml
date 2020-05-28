@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/background"
     tools:context=".DetailFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -11,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primaryDarkColor"
+        android:elevation="51dp"
+        android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -176,7 +180,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:clickable="true"
                         android:paddingStart="16dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -227,6 +230,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:clickable="true"
+                        android:focusable="true"
                         android:paddingStart="16dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -276,7 +280,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
-                        android:clickable="true"
+                        android:clickable="false"
+                        android:focusable="false"
                         android:paddingStart="16dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -326,7 +331,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="8dp"
-                        android:clickable="true"
+                        android:clickable="false"
+                        android:focusable="false"
                         android:paddingStart="16dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout

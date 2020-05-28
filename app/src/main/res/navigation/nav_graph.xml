@@ -10,15 +10,24 @@
         android:id="@+id/ListFragment"
         android:name="com.ennbou.contact.ListFragment"
         android:label="label1"
-        tools:layout="@layout/fragment_list">
+        tools:layout="@layout/fragment_list"
+        app:startDestination="@id/action_ListFragment_to_EditFragment">
 
         <action
             android:id="@+id/action_ListFragment_to_DetailFragment"
-            app:destination="@id/DetailFragment" />
+            app:destination="@id/DetailFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/exit_to_right" />
 
         <action
             android:id="@+id/action_ListFragment_to_EditFragment"
-            app:destination="@id/EditFragment" />
+            app:destination="@id/EditFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/wait"
+            app:popEnterAnim="@anim/wait"
+            app:popExitAnim="@anim/exit_to_right" />
         <action
             android:id="@+id/action_ListFragment_to_SearchFragment"
             app:destination="@id/SearchFragment" />
@@ -30,11 +39,12 @@
         tools:layout="@layout/fragment_detail">
 
         <action
-            android:id="@+id/action_DetailFragment_to_ListFragment"
-            app:destination="@id/ListFragment" />
-        <action
             android:id="@+id/action_DetailFragment_to_EditFragment"
-            app:destination="@id/EditFragment" />
+            app:destination="@id/EditFragment"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:popEnterAnim="@anim/enter_from_left"
+            app:popExitAnim="@anim/exit_to_right" />
     </fragment>
     <fragment
         android:id="@+id/EditFragment"
@@ -42,12 +52,6 @@
         android:label="label2"
         tools:layout="@layout/fragment_edit">
 
-        <action
-            android:id="@+id/action_EditFragment_to_ListFragment"
-            app:destination="@id/ListFragment" />
-        <action
-            android:id="@+id/action_EditFragment_to_DetailFragment"
-            app:destination="@id/DetailFragment" />
     </fragment>
 
     <fragment
@@ -55,9 +59,10 @@
         android:name="com.ennbou.contact.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search">
-
         <action
-            android:id="@+id/action_SearchFragment_to_ListFragment"
-            app:destination="@id/ListFragment" />
+            android:id="@+id/action_SearchFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment"
+            app:popUpTo="@id/SearchFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

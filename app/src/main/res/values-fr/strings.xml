@@ -3,7 +3,7 @@
     <string name="app_name">Contacts</string>
 
     <!--  Title quick add form  -->
-    <string name="add_new_contact">Neveau Contact</string>
+    <string name="add_new_contact">Nouveau Contact</string>
 
 
     <string name="msg_form_validation">veuillez vérifier tous les champs</string>
@@ -39,6 +39,7 @@
     <string name="remove_confirmation">Vous voulez supprimer ce contact?</string>
     <string name="remove_contact">Supprimer contact</string>
     <string name="remove">Supprimer</string>
+    <string name="not_found">n\'est pas existe</string>
 
 
 </resources>

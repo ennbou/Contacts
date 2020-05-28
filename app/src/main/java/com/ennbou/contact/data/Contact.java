@@ -21,11 +21,8 @@ public class Contact {
     private String lastName;
     @ColumnInfo(name = "phone_number")
     private String phoneNumber;
-    @Ignore
     private String email;
-    @Ignore
     private String job;
-    @Ignore
     private String note;
 
     public Contact() {
