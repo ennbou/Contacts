@@ -96,6 +96,19 @@ public class HeadContact extends ItemDecoration {
         }
     }
 
+    // 0 Ahmmed jjj
+    // 1 Ahmmed iii
+    // 2 Ahmmed iii
+    // 3 Ahmmed iii
+    // 4 Ahmmed iii
+    // 5 Bouchaib jjj
+    // 6 Bouchaib iii
+
+    // 0
+    // 5
+    // 9
+    // 17
+
 
     private HashMap<Integer, String> getHeaderLetter(List<Contact> contacts) {
         if (contacts == null) return new HashMap<>();

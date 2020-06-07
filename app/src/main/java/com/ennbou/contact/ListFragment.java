@@ -151,29 +151,23 @@ public class ListFragment extends Fragment {
             }
         });
 
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 layout.setTransition(R.id.set1, R.id.set2);
                 layout.transitionToState(R.id.set2);
-
                 layout.setTransitionListener(new TransitionAdapter() {
                     @Override
                     public void onTransitionCompleted(MotionLayout motionLayout, int currentId) {
                         layout.transitionToState(R.id.set3);
-                        layout.setTransitionListener(new TransitionAdapter() {
-                            @Override
-                            public void onTransitionCompleted(MotionLayout motionLayout, int currentId) {
-                                layout.transitionToState(R.id.set4);
-                                layout.setTransitionListener(null);
-                                hideSoftKeyboard();
-                            }
-                        });
+                        layout.setTransitionListener(null);
                     }
                 });
 
             }
         });
+
 
         btnAdd.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

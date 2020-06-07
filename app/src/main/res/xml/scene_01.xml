@@ -2,6 +2,7 @@
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
+
     <ConstraintSet android:id="@+id/set1">
         <!--button save -->
         <Constraint android:id="@id/fab">
@@ -98,34 +99,34 @@
                 motion:layout_constraintTop_toTopOf="@id/container" />
 
             <CustomAttribute
+                motion:attributeName="radius"
+                motion:customDimension="160dp" />
+
+            <CustomAttribute
                 motion:attributeName="cardElevation"
                 motion:customDimension="@dimen/fab_elevation_2" />
         </Constraint>
     </ConstraintSet>
 
-    <ConstraintSet
-        android:id="@+id/set3"
+    <ConstraintSet android:id="@+id/set3"
         motion:deriveConstraintsFrom="@id/set2">
+
         <Constraint android:id="@id/fab">
             <Layout
                 motion:layout_constraintBottom_toBottomOf="@id/add_sheet_placeholder"
                 motion:layout_constraintEnd_toEndOf="@id/add_sheet_placeholder"
                 motion:layout_constraintStart_toStartOf="@id/add_sheet_placeholder"
                 motion:layout_constraintTop_toTopOf="@id/add_sheet_placeholder" />
-
             <CustomAttribute
                 motion:attributeName="radius"
                 motion:customDimension="0dp" />
         </Constraint>
         <Constraint android:id="@id/add_icon">
             <Layout
-                android:layout_width="@dimen/fab_size"
-                android:layout_height="@dimen/fab_size"
                 motion:layout_constraintBottom_toBottomOf="@id/bottom_bar_card_view"
                 motion:layout_constraintEnd_toEndOf="@id/bottom_bar_card_view"
                 motion:layout_constraintStart_toStartOf="@id/bottom_bar_card_view"
                 motion:layout_constraintTop_toTopOf="@id/bottom_bar_card_view" />
-            <PropertySet android:visibility="visible" />
         </Constraint>
         <Constraint android:id="@id/save_icon">
             <Layout
@@ -140,6 +141,7 @@
         <Constraint android:id="@id/container">
             <Transform android:translationY="32dp" />
         </Constraint>
+
     </ConstraintSet>
 
     <ConstraintSet
@@ -211,9 +213,11 @@
     </ConstraintSet>
 
 
+    <!--transitions-->
+
     <Transition
-        motion:constraintSetEnd="@id/set2"
         motion:constraintSetStart="@id/set1"
+        motion:constraintSetEnd="@id/set2"
         motion:duration="@integer/pathAnimDuration">
 
         <KeyFrameSet>
@@ -230,30 +234,20 @@
                 motion:percentX="0.8"
                 motion:percentY="0.2" />
         </KeyFrameSet>
-        <!--        <OnClick-->
-        <!--            motion:clickAction="toggle"-->
-        <!--            motion:targetId="@id/add_icon">-->
-        <!--        </OnClick>-->
-    </Transition>
 
+    </Transition>
 
     <Transition
         android:id="@+id/tr1"
         motion:constraintSetEnd="@id/set3"
         motion:constraintSetStart="@id/set2"
-        motion:duration="@integer/revealAnimDuration">
+        motion:duration="500">
 
-        <!-- At 80% of animation, reach max size of fab with radius
-          as a circle (160dp doesn't matter as the CustomCardView will
-          monitor the radius to never exceed size/2). The remaining 20% will
-          un-curve the circle corners (radius = 0 at 100%)-->
         <KeyFrameSet>
             <KeyAttribute
                 motion:framePosition="80"
                 motion:motionTarget="@id/fab">
-                <CustomAttribute
-                    motion:attributeName="radius"
-                    motion:customDimension="160dp" />
+
             </KeyAttribute>
             <KeyPosition
                 motion:framePosition="80"
@@ -266,20 +260,14 @@
                 motion:motionTarget="@id/add_icon"
                 motion:percentY="1" />
         </KeyFrameSet>
-        <!--        <OnClick-->
-        <!--            motion:clickAction="toggle"-->
-        <!--            motion:targetId="@id/btn_2" />-->
-    </Transition>
 
+    </Transition>
 
     <Transition
         motion:autoTransition="animateToEnd"
         motion:constraintSetEnd="@id/set4"
         motion:constraintSetStart="@id/set3"
-        motion:duration="@integer/settleAnimDuration">
-        <!--        <OnClick-->
-        <!--            motion:clickAction="toggle"-->
-        <!--            motion:targetId="@id/btn_3" />-->
+        motion:duration="500">
 
     </Transition>
 

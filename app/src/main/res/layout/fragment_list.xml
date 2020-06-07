@@ -71,7 +71,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="24dp">
 
@@ -164,7 +164,19 @@
             android:layout_height="@dimen/fab_size"
             app:cardBackgroundColor="@color/primaryColor"
             app:cardCornerRadius="@dimen/fab_radius"
-            app:cardElevation="@dimen/fab_elevation" />
+            app:cardElevation="@dimen/fab_elevation"/>
+
+        <ImageView
+            android:id="@+id/add_icon"
+            android:layout_width="@dimen/fab_size"
+            android:layout_height="@dimen/fab_size"
+            android:elevation="34dp"
+            android:outlineProvider="none"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_person_add"
+            app:layout_constraintBottom_toBottomOf="@id/fab"
+            app:layout_constraintEnd_toEndOf="@id/fab"
+            app:layout_constraintStart_toStartOf="@id/fab" />
 
         <ImageView
             android:id="@+id/save_icon"
@@ -234,19 +246,6 @@
             app:layout_constraintBottom_toBottomOf="@id/bottom_bar_card_view"
             app:layout_constraintTop_toTopOf="@id/bottom_bar_card_view"
             app:srcCompat="@drawable/ic_close" />
-
-
-        <ImageView
-            android:id="@+id/add_icon"
-            android:layout_width="@dimen/fab_size"
-            android:layout_height="@dimen/fab_size"
-            android:elevation="34dp"
-            android:outlineProvider="none"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_person_add"
-            app:layout_constraintBottom_toBottomOf="@id/fab"
-            app:layout_constraintEnd_toEndOf="@id/fab"
-            app:layout_constraintStart_toStartOf="@id/fab" />
 
 
     </androidx.constraintlayout.motion.widget.MotionLayout>

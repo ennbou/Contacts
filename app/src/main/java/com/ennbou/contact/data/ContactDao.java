@@ -15,14 +15,14 @@ public interface ContactDao {
     @Query("SELECT * FROM Contact WHERE id = :id")
     public LiveData<Contact> getById(Long id);
 
-    @Query("SELECT * FROM Contact WHERE first_name like '%' || :name || '%'")
-    public LiveData<List<Contact>> searchAll(String name);
-
     @Query("SELECT * FROM Contact ORDER BY first_name COLLATE NOCASE ASC")
     public LiveData<List<Contact>> getAll();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public Long insert(Contact contact);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    public void insertAll(List<Contact> contacts);
 
     @Delete
     public void delete(Contact contact);
